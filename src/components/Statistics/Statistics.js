@@ -14,10 +14,10 @@ export default class Statistics extends Component {
               <span>{state[reportType]}</span>
             </li>
           ))}
-          {onTotalCount() ? (
+          {onTotalCount ? (
             <li key="total" className={s.statItem}>
               <p className={s.total}>Total:</p>
-              <span>{onTotalCount()}</span>
+              <span>{onTotalCount}</span>
             </li>
           ) : null}
           {state.good ? (

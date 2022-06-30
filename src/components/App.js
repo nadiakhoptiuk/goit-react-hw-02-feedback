@@ -25,9 +25,6 @@ export default class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    console.log(this.state.good);
-    console.log(this.countTotalFeedback());
-
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
@@ -39,6 +36,7 @@ export default class App extends Component {
       countTotalFeedback,
       countPositiveFeedbackPercentage,
     } = this;
+    const totalCount = countTotalFeedback();
 
     return (
       <>
@@ -53,12 +51,16 @@ export default class App extends Component {
         <section className="reportSection section">
           <Container>
             <p className="title">Statistics</p>
-            <Statistics
-              reportTypes={types}
-              state={state}
-              onTotalCount={countTotalFeedback}
-              onPositivePercentage={countPositiveFeedbackPercentage}
-            />
+            {!totalCount ? (
+              <p>No feedback given</p>
+            ) : (
+              <Statistics
+                reportTypes={types}
+                state={state}
+                onTotalCount={totalCount}
+                onPositivePercentage={countPositiveFeedbackPercentage}
+              />
+            )}
           </Container>
         </section>
       </>
