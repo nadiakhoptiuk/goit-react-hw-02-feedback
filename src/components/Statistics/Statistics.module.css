@@ -9,6 +9,8 @@
   margin-bottom: 10px;
 }
 
-.reportType {
+.reportType,
+.total,
+.positive {
   margin-right: 20px;
 }

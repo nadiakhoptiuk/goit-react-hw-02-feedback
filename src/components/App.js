@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from './Container';
 import FeedbackButtons from './FeedbackButtons';
-import Statistics from './Statistics/Statistics';
+import Statistics from './Statistics';
 
 export default class App extends Component {
   state = {
@@ -16,23 +16,49 @@ export default class App extends Component {
     }));
   };
 
+  countTotalFeedback = () => {
+    const countsArr = Object.values(this.state);
+
+    return countsArr.reduce((prevVal, currVal) => {
+      return prevVal + currVal;
+    });
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    console.log(this.state.good);
+    console.log(this.countTotalFeedback());
+
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  };
+
   render() {
     const types = Object.keys(this.state);
+    const {
+      state,
+      increase,
+      countTotalFeedback,
+      countPositiveFeedbackPercentage,
+    } = this;
 
     return (
       <>
         <section className="feedbackSection section">
           <Container>
-            <h1 className="title">Please leave feedback</h1>
+            <p className="title">Please leave feedback</p>
 
-            <FeedbackButtons btnTypes={types} onIncrease={this.increase} />
+            <FeedbackButtons btnTypes={types} onIncrease={increase} />
           </Container>
         </section>
 
         <section className="reportSection section">
           <Container>
-            <h1 className="title">Statistics</h1>
-            <Statistics reportTypes={types} state={this.state} />
+            <p className="title">Statistics</p>
+            <Statistics
+              reportTypes={types}
+              state={state}
+              onTotalCount={countTotalFeedback}
+              onPositivePercentage={countPositiveFeedbackPercentage}
+            />
           </Container>
         </section>
       </>
