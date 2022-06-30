@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Container from './Container';
+
 import Section from './Section';
 import FeedbackButtons from './FeedbackButtons';
 import Statistics from './Statistics';
@@ -42,28 +42,21 @@ export default class App extends Component {
 
     return (
       <>
-        <Section>
-          <Container>
-            <p className="title">Please leave feedback</p>
-
-            <FeedbackButtons btnTypes={types} onIncrease={increase} />
-          </Container>
+        <Section title="Please leave feedback">
+          <FeedbackButtons btnTypes={types} onIncrease={increase} />
         </Section>
 
-        <Section>
-          <Container>
-            <p className="title">Statistics</p>
-            {!totalCount ? (
-              <Notification message="There is no feedback" />
-            ) : (
-              <Statistics
-                reportTypes={types}
-                state={state}
-                onTotalCount={totalCount}
-                onPositivePercentage={countPositiveFeedbackPercentage}
-              />
-            )}
-          </Container>
+        <Section title="Statistics">
+          {!totalCount ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              reportTypes={types}
+              state={state}
+              onTotalCount={totalCount}
+              onPositivePercentage={countPositiveFeedbackPercentage}
+            />
+          )}
         </Section>
       </>
     );

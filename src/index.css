@@ -29,10 +29,6 @@ ul {
   list-style: none;
 }
 
-.title {
-  text-align: center;
-}
-
 .btnList {
   display: flex;
   justify-content: center;
