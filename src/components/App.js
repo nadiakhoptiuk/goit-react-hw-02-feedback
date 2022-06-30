@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Container from './Container';
 import FeedbackButtons from './FeedbackButtons';
 import Statistics from './Statistics';
+import Notification from './Notification';
 
 export default class App extends Component {
   state = {
@@ -52,7 +53,7 @@ export default class App extends Component {
           <Container>
             <p className="title">Statistics</p>
             {!totalCount ? (
-              <p>No feedback given</p>
+              <Notification message="There is no feedback" />
             ) : (
               <Statistics
                 reportTypes={types}
