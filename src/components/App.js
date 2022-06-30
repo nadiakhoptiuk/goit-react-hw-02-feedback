@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Container from './Container';
+import Section from './Section';
 import FeedbackButtons from './FeedbackButtons';
 import Statistics from './Statistics';
 import Notification from './Notification';
@@ -41,15 +42,15 @@ export default class App extends Component {
 
     return (
       <>
-        <section className="feedbackSection section">
+        <Section>
           <Container>
             <p className="title">Please leave feedback</p>
 
             <FeedbackButtons btnTypes={types} onIncrease={increase} />
           </Container>
-        </section>
+        </Section>
 
-        <section className="reportSection section">
+        <Section>
           <Container>
             <p className="title">Statistics</p>
             {!totalCount ? (
@@ -63,7 +64,7 @@ export default class App extends Component {
               />
             )}
           </Container>
-        </section>
+        </Section>
       </>
     );
   }
