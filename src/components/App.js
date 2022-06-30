@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Container from './Container';
-import FeedbackButton from './FeedbackButton';
+import FeedbackButtons from './FeedbackButtons';
+import Statistics from './Statistics/Statistics';
 
 export default class App extends Component {
   state = {
@@ -9,21 +10,34 @@ export default class App extends Component {
     bad: 0,
   };
 
+  increase = type => {
+    console.log(type);
+
+    this.setState(prevState => ({
+      [type]: prevState[type] + 1,
+    }));
+  };
+
   render() {
     const types = Object.keys(this.state);
-    console.log(types);
 
     return (
-      <section className="section">
-        <Container>
-          <h1 className="title">Please leave feedback</h1>
-          <ul className="btnList">
-            {types.map(type => (
-              <FeedbackButton key={type} type={type} />
-            ))}
-          </ul>
-        </Container>
-      </section>
+      <>
+        <section className="feedbackSection section">
+          <Container>
+            <h1 className="title">Please leave feedback</h1>
+
+            <FeedbackButtons btnTypes={types} onIncrease={this.increase} />
+          </Container>
+        </section>
+
+        <section className="reportSection section">
+          <Container>
+            <h1 className="title">Statistic</h1>
+            <Statistics reportTypes={types} state={this.state} />
+          </Container>
+        </section>
+      </>
     );
   }
 }

@@ -14,10 +14,23 @@ code {
     monospace;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 ul {
   padding: 0;
-  margin: -10px;
   list-style: none;
+}
+
+.section {
+  padding: 30px 0;
 }
 
 .title {
@@ -27,4 +40,10 @@ ul {
 .btnList {
   display: flex;
   justify-content: center;
+  margin: -10px;
+  margin-top: 10px;
+}
+
+.reportList {
+  margin-top: 10px;
 }
