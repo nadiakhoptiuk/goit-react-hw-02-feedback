@@ -11,8 +11,6 @@ export default class App extends Component {
   };
 
   increase = type => {
-    console.log(type);
-
     this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
