@@ -33,7 +33,7 @@ export default class App extends Component {
 
         <section className="reportSection section">
           <Container>
-            <h1 className="title">Statistic</h1>
+            <h1 className="title">Statistics</h1>
             <Statistics reportTypes={types} state={this.state} />
           </Container>
         </section>

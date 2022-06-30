@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import s from './Statistic.module.css';
+import s from './Statistics.module.css';
 
-export default class Statistic extends Component {
+export default class Statistics extends Component {
   render() {
     const { reportTypes, state } = this.props;
     return (

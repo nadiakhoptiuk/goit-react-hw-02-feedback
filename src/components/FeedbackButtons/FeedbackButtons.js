@@ -7,17 +7,19 @@ export default class FeedbackButtons extends Component {
 
     return (
       <ul className="btnList">
-        {btnTypes.map((btnType, index) => (
-          <li key={index}>
-            <button
-              type="button"
-              className={s[btnType]}
-              onClick={() => onIncrease(btnType)}
-            >
-              {btnType}
-            </button>
-          </li>
-        ))}
+        {btnTypes.map((btnType, index) => {
+          return (
+            <li key={index}>
+              <button
+                type="button"
+                className={s[btnType]}
+                onClick={() => onIncrease(btnType)}
+              >
+                {btnType}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     );
   }
