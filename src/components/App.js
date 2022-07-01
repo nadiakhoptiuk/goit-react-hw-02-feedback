@@ -39,6 +39,7 @@ export default class App extends Component {
       countPositiveFeedbackPercentage,
     } = this;
     const totalCount = countTotalFeedback();
+    const positivePercentage = countPositiveFeedbackPercentage();
 
     return (
       <>
@@ -54,7 +55,7 @@ export default class App extends Component {
               reportTypes={types}
               state={state}
               onTotalCount={totalCount}
-              onPositivePercentage={countPositiveFeedbackPercentage}
+              onPositivePercentage={positivePercentage}
             />
           )}
         </Section>
